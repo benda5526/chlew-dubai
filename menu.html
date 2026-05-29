@@ -190,11 +190,22 @@
     background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 32px;
+    padding: 0;
     position: relative;
     overflow: hidden;
     transition: transform 0.3s, border-color 0.3s;
   }
+  .fav-img {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .fav-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .fav-card:hover .fav-img img { transform: scale(1.06); }
+  .fav-body { padding: 28px 32px 32px; }
   .fav-card::after {
     content: '';
     position: absolute;
@@ -470,6 +481,17 @@
   }
   .catering-price small { font-size: 13px; color: var(--muted); font-weight: 400; letter-spacing: 0.1em; }
 
+  /* ===== DIY BANNER ===== */
+  .diy-banner {
+    max-width: 760px;
+    margin: 0 auto 44px;
+    aspect-ratio: 16 / 7;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+  }
+  .diy-banner img { width: 100%; height: 100%; object-fit: cover; }
+
   /* ===== SALADS ===== */
   .salads-grid {
     display: grid;
@@ -480,11 +502,23 @@
     background: var(--bg-2);
     border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 30px 28px;
+    padding: 0;
+    overflow: hidden;
     text-align: center;
     transition: transform 0.3s, border-color 0.3s;
   }
   .salad-card:hover { transform: translateY(-4px); border-color: var(--pink); }
+  .salad-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+  .salad-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.5s;
+  }
+  .salad-card:hover .salad-img img { transform: scale(1.06); }
+  .salad-body { padding: 26px 24px 30px; }
   .salad-name {
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
@@ -690,67 +724,82 @@
 
     <div class="favorites-grid">
       <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Crispy Chlew</h3>
-          <span class="fav-price">AED 89</span>
-        </div>
-        <p class="fav-desc">Onion bread, honey mustard, crispy onions, fresh avocado, smoked turkey and honey turkey.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add cheddar<strong>+8</strong></span>
-          <span class="fav-extra">Add extra meat<strong>+25</strong></span>
-        </div>
-      </article>
-
-      <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Classico Chlew</h3>
-          <span class="fav-price">AED 95</span>
-        </div>
-        <p class="fav-desc">Baguette, mayonnaise, pickles, smoked turkey and rosette.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add cheddar<strong>+8</strong></span>
-          <span class="fav-extra">Add avocado<strong>+8</strong></span>
+        <div class="fav-img"><img src="images/fav-crispy-chlew.jpg" alt="The Crispy Chlew sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Crispy Chlew</h3>
+            <span class="fav-price">AED 89</span>
+          </div>
+          <p class="fav-desc">Onion bread, honey mustard, crispy onions, fresh avocado, smoked turkey and honey turkey.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+            <span class="fav-extra">Add extra meat<strong>+25</strong></span>
+          </div>
         </div>
       </article>
 
       <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Chlew Signature</h3>
-          <span class="fav-price">AED 95</span>
-        </div>
-        <p class="fav-desc">Onion bread, Big Mac sauce, honey mustard, lettuce, avocado, pickles, smoked turkey and pastrami.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add cheddar<strong>+8</strong></span>
-          <span class="fav-extra">Add extra meat<strong>+25</strong></span>
+        <div class="fav-img"><img src="images/fav-classico-chlew.jpg" alt="The Classico Chlew sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Classico Chlew</h3>
+            <span class="fav-price">AED 95</span>
+          </div>
+          <p class="fav-desc">Baguette, mayonnaise, pickles, smoked turkey and rosette.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+            <span class="fav-extra">Add avocado<strong>+8</strong></span>
+          </div>
         </div>
       </article>
 
       <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Full Pastram</h3>
-          <span class="fav-price">AED 95</span>
+        <div class="fav-img"><img src="images/fav-chlew-signature.jpg" alt="The Chlew Signature sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Chlew Signature</h3>
+            <span class="fav-price">AED 95</span>
+          </div>
+          <p class="fav-desc">Onion bread, Big Mac sauce, honey mustard, lettuce, avocado, pickles, smoked turkey and pastrami.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+            <span class="fav-extra">Add extra meat<strong>+25</strong></span>
+          </div>
         </div>
-        <p class="fav-desc">Onion bread, honey mustard, yellow mustard, pickles, purple cabbage, crispy onions and pastrami overload.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add cheddar<strong>+8</strong></span>
-          <span class="fav-extra">Add avocado<strong>+8</strong></span>
-          <span class="fav-extra">Add extra meat<strong>+25</strong></span>
+      </article>
+
+      <article class="fav-card">
+        <div class="fav-img"><img src="images/fav-full-pastram.jpg" alt="The Full Pastram sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Full Pastram</h3>
+            <span class="fav-price">AED 95</span>
+          </div>
+          <p class="fav-desc">Onion bread, honey mustard, yellow mustard, pickles, purple cabbage, crispy onions and pastrami overload.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+            <span class="fav-extra">Add avocado<strong>+8</strong></span>
+            <span class="fav-extra">Add extra meat<strong>+25</strong></span>
+          </div>
         </div>
       </article>
 
       <article class="fav-card" style="grid-column: 1 / -1; max-width: 590px; margin: 0 auto; width: 100%;">
-        <div class="fav-head">
-          <h3 class="fav-name">The Tuna Chlew</h3>
-          <span class="fav-price">AED 75</span>
-        </div>
-        <p class="fav-desc">Onion bread, honey mustard, crispy onions, avocado, homemade tuna salad.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+        <div class="fav-img"><img src="images/fav-tuna-chlew.jpg" alt="The Tuna Chlew sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Tuna Chlew</h3>
+            <span class="fav-price">AED 75</span>
+          </div>
+          <p class="fav-desc">Onion bread, honey mustard, crispy onions, avocado, homemade tuna salad.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+          </div>
         </div>
       </article>
     </div>
@@ -764,6 +813,8 @@
       <h2 class="script">Do it <span>yourself</span></h2>
       <p class="sub">Build your own — 4 simple steps</p>
     </div>
+
+    <div class="diy-banner"><img src="images/diy-builder.jpg" alt="Build your own Chlew sandwich" loading="lazy" /></div>
 
     <div class="diy-intro">
       <div class="price-pill">AED 89</div>
@@ -839,50 +890,60 @@
 
     <div class="favorites-grid">
       <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Croc Chlew</h3>
-          <span class="fav-price">AED 59</span>
-        </div>
-        <p class="fav-desc">Plain bread, mayo &amp; smoked turkey.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add avocado<strong>+8</strong></span>
-        </div>
-      </article>
-
-      <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Croc Pastram</h3>
-          <span class="fav-price">AED 59</span>
-        </div>
-        <p class="fav-desc">Plain bread, US mustard, cheddar &amp; pastrami.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add avocado<strong>+8</strong></span>
+        <div class="fav-img"><img src="images/croc-chlew.jpg" alt="The Croc Chlew toasted sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Croc Chlew</h3>
+            <span class="fav-price">AED 59</span>
+          </div>
+          <p class="fav-desc">Plain bread, mayo &amp; smoked turkey.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add avocado<strong>+8</strong></span>
+          </div>
         </div>
       </article>
 
       <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Croc Salmon</h3>
-          <span class="fav-price">AED 59</span>
-        </div>
-        <p class="fav-desc">Plain bread, mayo, avocado &amp; smoked salmon.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+        <div class="fav-img"><img src="images/croc-pastram.jpg" alt="The Croc Pastram toasted sandwich" loading="lazy" /></div>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Croc Pastram</h3>
+            <span class="fav-price">AED 59</span>
+          </div>
+          <p class="fav-desc">Plain bread, US mustard, cheddar &amp; pastrami.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add avocado<strong>+8</strong></span>
+          </div>
         </div>
       </article>
 
       <article class="fav-card">
-        <div class="fav-head">
-          <h3 class="fav-name">The Croc Tuna Melt</h3>
-          <span class="fav-price">AED 49</span>
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Croc Salmon</h3>
+            <span class="fav-price">AED 59</span>
+          </div>
+          <p class="fav-desc">Plain bread, mayo, avocado &amp; smoked salmon.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add cheddar<strong>+8</strong></span>
+          </div>
         </div>
-        <p class="fav-desc">Plain bread, honey mustard, cheddar &amp; homemade tuna mousse.</p>
-        <div class="fav-extras">
-          <span class="fav-extra">Add spicy<strong>+8</strong></span>
-          <span class="fav-extra">Add avocado<strong>+8</strong></span>
+      </article>
+
+      <article class="fav-card">
+        <div class="fav-body">
+          <div class="fav-head">
+            <h3 class="fav-name">The Croc Tuna Melt</h3>
+            <span class="fav-price">AED 49</span>
+          </div>
+          <p class="fav-desc">Plain bread, honey mustard, cheddar &amp; homemade tuna mousse.</p>
+          <div class="fav-extras">
+            <span class="fav-extra">Add spicy<strong>+8</strong></span>
+            <span class="fav-extra">Add avocado<strong>+8</strong></span>
+          </div>
         </div>
       </article>
     </div>
@@ -899,16 +960,25 @@
 
     <div class="salads-grid">
       <div class="salad-card">
-        <h3 class="salad-name">The Chlew Salad</h3>
-        <p class="salad-desc">Make your own salad — pick your greens, toppings &amp; charcuterie.</p>
+        <div class="salad-img"><img src="images/salad-chlew.jpg" alt="The Chlew Salad bowl" loading="lazy" /></div>
+        <div class="salad-body">
+          <h3 class="salad-name">The Chlew Salad</h3>
+          <p class="salad-desc">Make your own salad — pick your greens, toppings &amp; charcuterie.</p>
+        </div>
       </div>
       <div class="salad-card">
-        <h3 class="salad-name">The Tuna Salad</h3>
-        <p class="salad-desc">Lettuce, cherry tomatoes, avocado, crispy onions and homemade tuna salad.</p>
+        <div class="salad-img"><img src="images/salad-tuna.jpg" alt="The Tuna Salad bowl" loading="lazy" /></div>
+        <div class="salad-body">
+          <h3 class="salad-name">The Tuna Salad</h3>
+          <p class="salad-desc">Lettuce, cherry tomatoes, avocado, crispy onions and homemade tuna salad.</p>
+        </div>
       </div>
       <div class="salad-card">
-        <h3 class="salad-name">The Parisian Salad</h3>
-        <p class="salad-desc">Lettuce, cherry tomatoes, avocado, crispy onions and grilled turkey cubes.</p>
+        <div class="salad-img"><img src="images/salad-parisian.jpg" alt="The Parisian Salad bowl" loading="lazy" /></div>
+        <div class="salad-body">
+          <h3 class="salad-name">The Parisian Salad</h3>
+          <p class="salad-desc">Lettuce, cherry tomatoes, avocado, crispy onions and grilled turkey cubes.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -950,19 +1020,19 @@
 
     <div class="charc-grid">
       <div class="charc-item">
-        <div class="charc-thumb"><img src="images/Pastrami_brooklyn-hd.jpg" alt="Pastrami Brooklyn" /></div>
+        <div class="charc-thumb"><img src="images/charc-pastrami.jpg" alt="Pastrami Brooklyn" loading="lazy" /></div>
         <h4 class="charc-name">Pastrami Brooklyn</h4>
       </div>
       <div class="charc-item">
-        <div class="charc-thumb"><img src="images/Bresaola-hd.jpg" alt="Bresaola" /></div>
+        <div class="charc-thumb"><img src="images/charc-bresaola.jpg" alt="Bresaola" loading="lazy" /></div>
         <h4 class="charc-name">Bresaola</h4>
       </div>
       <div class="charc-item">
-        <div class="charc-thumb"><img src="images/Rosette-hd.jpg" alt="Rosette" /></div>
+        <div class="charc-thumb"><img src="images/charc-rosette.jpg" alt="Rosette" loading="lazy" /></div>
         <h4 class="charc-name">Rosette</h4>
       </div>
       <div class="charc-item">
-        <div class="charc-thumb"><img src="images/Dinde_fume_au_miel-hd.jpg" alt="Honey smoked turkey" /></div>
+        <div class="charc-thumb"><img src="images/charc-honey-turkey.jpg" alt="Honey smoked turkey" loading="lazy" /></div>
         <h4 class="charc-name">Honey Smoked Turkey</h4>
       </div>
       <div class="charc-item">
@@ -974,7 +1044,7 @@
         <h4 class="charc-name">Mortadella Pistachio</h4>
       </div>
       <div class="charc-item">
-        <div class="charc-thumb"><img src="images/CHLEW_SHOOTCH-25.jpg" alt="Chlew charcuterie selection" /></div>
+        <div class="charc-thumb"><img src="images/catering-charcuterie-board.jpg" alt="Chlew charcuterie selection" loading="lazy" /></div>
         <h4 class="charc-name">The Full Board</h4>
       </div>
     </div>
@@ -991,7 +1061,7 @@
 
     <div class="catering-grid">
       <article class="catering-card">
-        <div class="catering-img"><img src="images/CHLEW_SHOOTCH-25-hd.jpg" alt="The Big Charcuterie Board" /></div>
+        <div class="catering-img"><img src="images/catering-charcuterie-board.jpg" alt="The Big Charcuterie Board" loading="lazy" /></div>
         <div class="catering-body">
           <div class="catering-text">
             <h3>The Big Charcuterie Board</h3>
@@ -1002,7 +1072,7 @@
       </article>
 
       <article class="catering-card">
-        <div class="catering-img"><img src="images/sandwich-platter-hd.jpeg" alt="Mini sandwich platter" /></div>
+        <div class="catering-img"><img src="images/catering-sandwich-platter.jpg" alt="Mini sandwich platter" loading="lazy" /></div>
         <div class="catering-body">
           <div class="catering-text">
             <h3>To Share — Sandwich Platter</h3>
